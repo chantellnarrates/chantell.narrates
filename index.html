@@ -48,7 +48,21 @@
         radial-gradient(circle at top left, rgba(201, 164, 91, 0.25), transparent 35%),
         radial-gradient(circle at bottom right, rgba(125, 138, 98, 0.25), transparent 30%);
       pointer-events: none;
-      z-index: -2;
+      z-index: -3;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(115deg, rgba(36, 56, 47, 0.18) 0 1px, transparent 1px 12px),
+        linear-gradient(115deg, rgba(255, 248, 234, 0.14) 0 1px, transparent 1px 18px);
+      background-size: 90px 90px, 140px 140px;
+      animation: rainDrift 1.4s linear infinite;
     }
 
     a {
@@ -180,13 +194,7 @@
     }
 
     @keyframes floatGlow {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
+      0%, 100%
 
     .button.primary {
       background: var(--forest);
