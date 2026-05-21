@@ -453,7 +453,28 @@
       .grid {
         grid-template-columns: 1fr;
       }
-    }
+    }@media (max-width: 768px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+    line-height: 0.9;
+  }
+
+  .hero-card {
+    min-height: auto;
+  }
+
+}
   </style>
 </head>
 
