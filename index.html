@@ -195,7 +195,15 @@
 
     @keyframes floatGlow {
       0%, 100%
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
 
+  50% {
+    transform: translateY(-10px);
+  }
+}
     .button.primary {
       background: var(--forest);
       color: var(--warm-cream);
