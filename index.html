@@ -237,4 +237,221 @@
     }
 
     .about {
-      background: var(
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: clamp(30px, 5vw, 56px);
+      box-shadow: 0 14px 45px rgba(36, 31, 26, 0.06);
+    }
+
+    .about p {
+      max-width: 850px;
+      font-size: clamp(1.2rem, 2.3vw, 1.75rem);
+      line-height: 1.35;
+      color: rgba(36, 31, 26, 0.78);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255, 248, 236, 0.7);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 26px;
+      min-height: 210px;
+      box-shadow: 0 14px 45px rgba(36, 31, 26, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      color: var(--forest);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-family: Arial, sans-serif;
+      color: var(--soft);
+      font-size: 0.98rem;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .project-mark {
+      min-height: 310px;
+      border-radius: 30px;
+      background:
+        linear-gradient(145deg, rgba(173, 101, 68, 0.88), rgba(102, 112, 82, 0.92));
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+      color: var(--paper);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+    }
+
+    .contact {
+      text-align: center;
+      background: var(--forest);
+      color: var(--paper);
+      border-radius: 34px;
+      padding: clamp(34px, 6vw, 70px);
+      box-shadow: var(--shadow);
+    }
+
+    .contact h2 {
+      color: var(--paper);
+    }
+
+    .contact p {
+      max-width: 620px;
+      margin: 0 auto 26px;
+      color: rgba(255, 248, 236, 0.76);
+    }
+
+    footer {
+      padding: 32px 0 46px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      color: rgba(36, 31, 26, 0.55);
+    }
+
+    @media (max-width: 850px) {
+      .navlinks {
+        display: none;
+      }
+
+      .hero,
+      .project {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        min-height: 410px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#top">Chantell Narrates</a>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero">
+      <div>
+        <p class="eyebrow">Storytelling · voice · slow-made things</p>
+        <h1>A warm little corner for stories, soil & sound.</h1>
+        <p class="lead">
+          Narration, slow-living experiments, greenhouse chaos and creative tools — made with dry humour, earthy energy and a very real respect for imperfect beginnings.
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="#contact">Work with me</a>
+          <a class="btn secondary" href="#projects">See projects</a>
+          <a class="btn secondary" href="https://chantellnarrates.github.io/Cozy-Greenhouser-Planner/" target="_blank" rel="noopener">Open planner</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <div>
+          <p class="panel-kicker">Currently becoming</p>
+          <p class="quote">Voice notes from a softer, stranger internet.</p>
+        </div>
+        <p class="panel-bottom">
+          A growing home for narration, creator work, cosy web tools and the occasional greenhouse plot twist.
+        </p>
+      </aside>
+    </section>
+
+    <section class="wrap" id="about">
+      <div class="about">
+        <p>
+          I’m Chantell — a South African creator building a gentle, practical and slightly chaotic creative life through storytelling, voice work, digital experiments and greenhouse days.
+        </p>
+      </div>
+    </section>
+
+    <section class="wrap" id="projects">
+      <div class="section-title">
+        <h2>Projects taking root.</h2>
+        <p class="muted">A small but growing collection of tools, spaces and creative experiments.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-mark">Cozy<br>Greenhouse<br>Planner</div>
+        <div class="card">
+          <h3>Cozy Greenhouse Planner</h3>
+          <p>A simple little planning tool for seedlings, planting ideas and all the hopeful things trying to grow.</p>
+          <br>
+          <a class="btn primary" href="https://chantellnarrates.github.io/Cozy-Greenhouser-Planner/" target="_blank" rel="noopener">Open planner</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="work">
+      <div class="section-title">
+        <h2>Ways to work together.</h2>
+        <p class="muted">Simple for now. More polished offers can grow here later.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Voice & narration</h3>
+          <p>Warm, expressive voice work for short-form content, scripts, stories and brand moments.</p>
+        </article>
+        <article class="card">
+          <h3>Creative content</h3>
+          <p>Slow-living, gardening and storytelling-led content with human texture and dry humour.</p>
+        </article>
+        <article class="card">
+          <h3>Digital tools</h3>
+          <p>Useful little web tools and planners for real life — not perfect productivity robot nonsense.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap" id="contact">
+      <div class="contact">
+        <h2>Let’s make something feel alive.</h2>
+        <p>For voice work, creative projects, collaborations or strange little ideas worth exploring.</p>
+        <div class="buttons" style="justify-content:center;">
+          <a class="btn secondary" href="mailto:chantell.narrates@mail">Email me</a>
+          <a class="btn secondary" href="#top">Back to top</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Chantell Narrates · built slowly, warmly, and probably with tea nearby.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
