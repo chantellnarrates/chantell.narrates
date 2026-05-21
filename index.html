@@ -138,6 +138,8 @@
     }
 
     .hero-copy {
+      animation: fadeUp 1s ease forwards;
+
       font-size: clamp(1.05rem, 2vw, 1.32rem);
       max-width: 620px;
       color: rgba(42, 34, 29, 0.78);
@@ -163,7 +165,27 @@
     }
 
     .button:hover {
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatGlow {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     .button.primary {
@@ -179,6 +201,8 @@
     }
 
     .hero-card {
+      animation: fadeUp 1.2s ease forwards, floatGlow 7s ease-in-out infinite;
+
       position: relative;
       min-height: 520px;
       border-radius: var(--radius);
@@ -331,6 +355,7 @@
     }
 
     .feature-visual::after {
+      text-shadow: 0 4px 18px rgba(0,0,0,0.25);
       content: "Greenhouse\A Planner";
       white-space: pre;
       position: absolute;
