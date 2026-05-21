@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chantell Narrates</title>
+  <meta name="description" content="Storytelling, slow-living experiments, greenhouse chaos, narration and creative little tools by Chantell Narrates." />
+
+  <style>
+    :root {
+      --forest: #24382f;
+      --deep-forest: #17241f;
+      --cream: #f5eddc;
+      --warm-cream: #fff8ea;
+      --clay: #b96f4a;
+      --terracotta: #8f4f34;
+      --olive: #7d8a62;
+      --moss: #526449;
+      --charcoal: #2a221d;
+      --gold: #c7a45b;
+      --soft-shadow: 0 24px 70px rgba(23, 36, 31, 0.22);
+      --radius: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(201, 164, 91, 0.25), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(125, 138, 98, 0.25), transparent 30%);
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 24px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(245, 237, 220, 0.78);
+      border-bottom: 1px solid rgba(42, 34, 29, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--forest);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+      color: rgba(42, 34, 29, 0.78);
+    }
+
+    .nav-links a:hover {
+      color: var(--terracotta);
+    }
+
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 48px;
+      padding: 76px 0 60px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border: 1px solid rgba(82, 100, 73, 0.25);
+      border-radius: 999px;
+      color: var(--moss);
+      background: rgba(255, 248, 234, 0.58);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow span {
+      width: 8px;
+      height: 8px;
+      background: var(--clay);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-size: clamp(3.3rem, 8vw, 7.4rem);
+      line-height: 0.88;
+      letter-spacing: -0.07em;
+      color: var(--deep-forest);
+      margin-bottom: 26px;
+    }
+
+    .hero-copy {
+      font-size: clamp(1.05rem, 2vw, 1.32rem);
+      max-width: 620px;
+      color: rgba(42, 34, 29, 0.78);
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: var(--forest);
+      color: var(--warm-cream);
+      box-shadow: 0 14px 35px rgba(36, 56, 47, 0.24);
+    }
+
+    .button.secondary {
+      background: rgba(255, 248, 234, 0.72);
+      border: 1px solid rgba(42, 34, 29, 0.14);
+      color: var(--forest);
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 520px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(36, 56, 47, 0.9), rgba(23, 36, 31, 0.98)),
+        radial-gradient(circle at 25% 25%, rgba(199, 164, 91, 0.48), transparent 30%);
+      box-shadow: var(--soft-shadow);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--cream);
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      opacity: 0.3;
+    }
+
+    .hero-card::before {
+      width: 220px;
+      height: 220px;
+      background: var(--gold);
+      top: -70px;
+      right: -70px;
+    }
+
+    .hero-card::after {
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgba(245, 237, 220, 0.26);
+      bottom: -90px;
+      left: -90px;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .script-line {
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .card-note {
+      font-family: Arial, sans-serif;
+      color: rgba(245, 237, 220, 0.78);
+      max-width: 340px;
+    }
+
+    .small-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .small-tags span {
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(245, 237, 220, 0.12);
+      border: 1px solid rgba(245, 237, 220, 0.18);
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
+      color: var(--deep-forest);
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: rgba(42, 34, 29, 0.72);
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .panel {
+      background: rgba(255, 248, 234, 0.68);
+      border: 1px solid rgba(42, 34, 29, 0.1);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 16px 45px rgba(42, 34, 29, 0.08);
+    }
+
+    .panel h3 {
+      color: var(--forest);
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .panel p {
+      font-family: Arial, sans-serif;
+      color: rgba(42, 34, 29, 0.72);
+      font-size: 0.98rem;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .feature-visual {
+      min-height: 340px;
+      border-radius: 26px;
+      background:
+        linear-gradient(145deg, rgba(185, 111, 74, 0.74), rgba(82, 100, 73, 0.88)),
+        radial-gradient(circle at top left, rgba(255, 248, 234, 0.5), transparent 35%);
+      box-shadow: var(--soft-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-visual::before {
+      content: "";
+      position: absolute;
+      width: 70%;
+      height: 70%;
+      border: 1px solid rgba(255, 248, 234, 0.34);
+      border-radius: 999px;
+      left: 15%;
+      top: 15%;
+    }
+
+    .feature-visual::after {
+      content: "Greenhouse\A Planner";
+      white-space: pre;
+      position: absolute;
+      left: 28px;
+      bottom: 28px;
+      color: var(--warm-cream);
+      font-size: 2.8rem;
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+    }
+
+    .feature-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-box {
+      background: var(--deep-forest);
+      color: var(--cream);
+      border-radius: var(--radius);
+      padding: clamp(30px, 5vw, 56px);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .about-box p {
+      max-width: 820px;
+      font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+      line-height: 1.35;
+      color: rgba(245, 237, 220, 0.9);
+    }
+
+    .contact-card {
+      text-align: center;
+      background: rgba(255, 248, 234, 0.78);
+      border: 1px solid rgba(42, 34, 29, 0.1);
+      border-radius: var(--radius);
+      padding: clamp(34px, 6vw, 70px);
+      box-shadow: 0 16px 45px rgba(42, 34, 29, 0.08);
+    }
+
+    .contact-card h2 {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      color: var(--deep-forest);
+      margin-bottom: 18px;
+    }
+
+    .contact-card p {
+      max-width: 620px;
+      margin: 0 auto 26px;
+      color: rgba(42, 34, 29, 0.72);
+      font-size: 1.05rem;
+    }
+
+    footer {
+      padding: 30px 0 48px;
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      color: rgba(42, 34, 29, 0.58);
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      .feature {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-card {
+        min-height: 430px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="page-wrap nav">
+      <a class="logo" href="#top">Chantell Narrates</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#voice">Voice Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="page-wrap hero">
+      <div>
+        <div class="eyebrow"><span></span> Creator · narrator · greenhouse chaos manager</div>
+        <h1>Stories with soil under their nails.</h1>
+        <p class="hero-copy">
+          Slow-living experiments, cosy chaos, creative narration and useful little tools — built from a greenhouse, a notebook and a mildly dramatic inner monologue.
+        </p>
+        <div class="buttons">
+          <a class="button primary" href="#contact">Work with me</a>
+          <a class="button secondary" href="#projects">See projects</a>
+          <a class="button secondary" href="https://chantellnarrates.github.io/Cozy-Greenhouser-Planner/" target="_blank" rel="noopener">Try the planner</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Chantell Narrates brand card">
+        <div class="card-content">
+          <p class="script-line">Narration, but make it warm, weird & rooted.</p>
+          <p class="card-note">
+            For brands, stories, voiceovers, cosy digital tools and content that feels human first.
+          </p>
+        </div>
+        <div class="small-tags">
+          <span>voice</span>
+          <span>storytelling</span>
+          <span>greenhouse life</span>
+          <span>creative tools</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="page-wrap" id="about">
+      <div class="about-box">
+        <p>
+          I’m Chantell — a South African creator building a softer, stranger little corner of the internet through storytelling, dry humour, plants, narration and practical digital experiments.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-wrap" id="projects">
+      <div class="section-heading">
+        <h2>Current little worlds.</h2>
+        <p>Projects, tools and content spaces currently growing in the background.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-visual" aria-hidden="true"></div>
+        <div class="panel feature-copy">
+          <h3>Cozy Greenhouse Planner</h3>
+          <p>
+            A simple greenhouse planning tool for keeping track of seedlings, planting ideas and all the hopeful little things trying to grow.
+          </p>
+          <br />
+          <a class="button primary" href="https://chantellnarrates.github.io/Cozy-Greenhouser-Planner/" target="_blank" rel="noopener">Open planner</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-wrap" id="voice">
+      <div class="section-heading">
+        <h2>Ways to work together.</h2>
+        <p>This can grow as your voice demos, services and offers become clearer.</p>
+      </div>
+
+      <div class="grid">
+        <article class="panel">
+          <h3>Voice & narration</h3>
+          <p>Warm, expressive narration for short-form content, stories, explainers and characterful brand moments.</p>
+        </article>
+        <article class="panel">
+          <h3>Creative content</h3>
+          <p>Slow-living, greenhouse and storytelling-led content with a dry, human sense of humour.</p>
+        </article>
+        <article class="panel">
+          <h3>Digital tools</h3>
+          <p>Simple, useful little web tools and planners built for real-life chaos, not perfect productivity robots.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-wrap" id="contact">
+      <div class="contact-card">
+        <h2>Let’s make something feel alive.</h2>
+        <p>
+          For voice work, collaborations, creative projects or “I have a weird idea” messages, reach out here.
+        </p>
+        <div class="buttons" style="justify-content:center;">
+          <a class="button primary" href="mailto:chaniv115@gmail.com">Email me</a>
+          <a class="button secondary" href="#top">Back to top</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page-wrap">
+      © <span id="year"></span> Chantell Narrates · built with tea, weather and questionable timing.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
